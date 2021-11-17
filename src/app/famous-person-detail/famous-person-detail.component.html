@@ -1,1 +1,3 @@
-<p>famous-person-detail works!</p>
+<p>{{ dev.firstName }} {{dev.lastName }}</p>
+<button (click)="toggleDisplay();">Display Details</button>
+<p *ngIf="display == true">In {{ dev.year }}: {{ dev.innovation }}</p>

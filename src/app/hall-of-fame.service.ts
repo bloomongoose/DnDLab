@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class HallOfFameService {
 
-  constructor() { }
+  apiUrl:string = "https://grandcircusco.github.io/demo-apis/computer-science-hall-of-fame.json";
+
+  constructor(private http: HttpClient) { }
+
+  getDevs():any{
+    return this.http.get(this.apiUrl);
+  }
 }

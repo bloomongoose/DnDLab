@@ -1,1 +1,4 @@
-<p>donuts works!</p>
+<div *ngFor="let D of donutList">
+    <p>{{ D.name }}</p>
+    <button routerLink="/donuts/{{ D.id }}">Details</button>
+</div>

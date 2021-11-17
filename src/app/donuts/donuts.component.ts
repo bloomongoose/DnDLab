@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Donut } from '../donut';
+import { DonutService } from '../donut.service';
 
 @Component({
   selector: 'app-donuts',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonutsComponent implements OnInit {
 
-  constructor() { }
+  donutList:Donut[] = [];
+
+  constructor(private service:DonutService) { }
 
   ngOnInit(): void {
+    this.service.getDonuts().subscribe((response:any) => {
+      console.log(response);
+      this.donutList = response.results;
+      console.log(this.donutList);
+    });
   }
 
 }
